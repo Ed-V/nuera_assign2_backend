@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using NueraBackend.Models.DTO;
 
 namespace NueraBackend.Controllers
 {
@@ -22,8 +23,9 @@ namespace NueraBackend.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post(ItemDTO value)
         {
+            return Ok("It Work");
         }
 
         // PUT api/<controller>/5
