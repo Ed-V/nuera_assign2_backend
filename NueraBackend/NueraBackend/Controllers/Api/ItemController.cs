@@ -66,8 +66,34 @@ namespace NueraBackend.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody] string value)
+        public IHttpActionResult Put(ItemDTO item)
         {
+
+            var dbContext = new NeuraBackendEntities();
+
+            var foundItem = dbContext.Items.FirstOrDefault(i => i.ItemId == item.ItemId);
+
+            if (foundItem == null)
+            {
+                return BadRequest("Item not found");
+            }
+
+            foundItem.Name = item.Name;
+            foundItem.Category = item.Category;
+            foundItem.Value = item.Value;
+
+            try
+            {
+                dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Unable to update item");
+            }
+
+
+
+            return Ok("Item sucessfully updated");
         }
 
         // DELETE api/<controller>/5
