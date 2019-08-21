@@ -16,6 +16,7 @@ namespace NueraBackend.Controllers
     public class ItemController : ApiController
     {
         // GET api/<controller>
+        [HttpGet]
         public IHttpActionResult Get()
         {
             var dbContext = new NeuraBackendEntities();
@@ -35,6 +36,7 @@ namespace NueraBackend.Controllers
 
 
         // POST api/<controller>
+        [HttpPost]
         public IHttpActionResult Post(List<ItemDTO> itemDTO)
         {
             NeuraBackendEntities dbContext = new NeuraBackendEntities();
@@ -66,6 +68,7 @@ namespace NueraBackend.Controllers
         }
 
         // PUT api/<controller>/5
+        [HttpPut]
         public IHttpActionResult Put(ItemDTO item)
         {
 
@@ -97,8 +100,32 @@ namespace NueraBackend.Controllers
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id)
+        [HttpDelete]
+        public IHttpActionResult Delete(string id)
         {
+
+            var dbContext = new NeuraBackendEntities();
+
+            var foundItem = dbContext.Items.FirstOrDefault(i => i.ItemId == id);
+
+            if (foundItem == null)
+            {
+                return BadRequest("Item not found");
+            }
+
+            dbContext.Items.Remove(foundItem);
+
+            try
+            {
+                dbContext.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Unable to remove item");
+            }
+
+
+            return Ok("Item removed sucessfully");
         }
     }
 }
