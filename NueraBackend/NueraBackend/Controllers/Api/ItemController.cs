@@ -16,6 +16,14 @@ namespace NueraBackend.Controllers
     public class ItemController : ApiController
     {
         // GET api/<controller>
+        /// <summary>Returns the list of items from the database. See example for json format, using get request</summary>
+        /// <returns>List containing items in JSON format</returns>
+        /// <example>
+        ///   <para>[{"name":"TV", "itemId":"dssdf-sdfsdfsd-sdfsdf", "value": 200, "category" : "Electronics"},</para>
+        ///   <para>{"name":"Computer", "itemId":"adfadsf-asdfasd-esdf", "value": 5000, "category" : "Electronics"}]
+        /// </para>
+        ///   <code></code>
+        /// </example>
         [HttpGet]
         public IHttpActionResult Get()
         {
@@ -36,6 +44,11 @@ namespace NueraBackend.Controllers
 
 
         // POST api/<controller>
+        /// <summary>Create new items, see example for format, using post request</summary>
+        /// <param name="itemDTO">The item dto.</param>
+        /// <returns>Ok status code</returns>
+        /// <example>[{"name":"Microwave", "itemId":"dssdf-sdfsdfsd-sdfsdf", "value": 265, "category" : "Kitchen"}]
+        /// <code></code></example>
         [HttpPost]
         public IHttpActionResult Post(List<ItemDTO> itemDTO)
         {
@@ -68,6 +81,11 @@ namespace NueraBackend.Controllers
         }
 
         // PUT api/<controller>/5
+        /// <summary>Update the item, see example for format, using put request</summary>
+        /// <param name="item">The item.</param>
+        /// <returns>Status message</returns>
+        /// <example>{"name":"Chair", "itemId":"dssdf-sdfsdfsd-sdfsdf", "value": 299, "category" : "Kitchen"}
+        /// <code></code></example>
         [HttpPut]
         public IHttpActionResult Put(ItemDTO item)
         {
@@ -100,6 +118,11 @@ namespace NueraBackend.Controllers
         }
 
         // DELETE api/<controller>/5
+        /// <summary>Deletes the specified item, using delete request.</summary>
+        /// <param name="id">Item ID.</param>
+        /// <returns>Status message</returns>
+        /// <example>http://localhost:53305/api/item/dssdf-sdfsdfsd-sdfsdf
+        /// <code></code></example>
         [HttpDelete]
         public IHttpActionResult Delete(string id)
         {
