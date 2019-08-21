@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\edbert.voo\source\repos\nuera_assign2_backend\NueraBackend\NueraBackend\Models\Items.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\edber\Documents\GIT\nuera_assign2_backend\NueraBackend\NueraBackend\Models\Items.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
