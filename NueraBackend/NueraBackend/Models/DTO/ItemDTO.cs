@@ -8,8 +8,8 @@ namespace NueraBackend.Models.DTO
 {
     public class ItemDTO
     {
-        [JsonProperty(PropertyName ="itemName")]
-        public string ItemName { get; set; }
+        [JsonProperty(PropertyName ="name")]
+        public string Name { get; set; }
 
         [JsonProperty(PropertyName = "itemId")]
         public string ItemId { get; set; }
