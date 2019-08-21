@@ -18,7 +18,19 @@ namespace NueraBackend.Controllers
         // GET api/<controller>
         public IHttpActionResult Get()
         {
-            return Ok();
+            var dbContext = new NeuraBackendEntities();
+            var items = dbContext.Items.ToList();
+
+            //Used to convert c# casing to json. Cannot directly edit the .cs class using the database first approach
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Item, ItemDTO>();
+            });
+            IMapper iMapper = config.CreateMapper();
+            var mappedResult = iMapper.Map<List<Item>, List<ItemDTO>>(items);
+
+
+            var result = JsonConvert.SerializeObject(mappedResult);
+            return Ok(result);
         }
 
 
