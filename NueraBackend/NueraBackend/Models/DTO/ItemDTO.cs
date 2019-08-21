@@ -11,7 +11,7 @@ namespace NueraBackend.Models.DTO
         [JsonProperty(PropertyName ="itemName")]
         public string ItemName { get; set; }
 
-        [JsonProperty(PropertyName = "itemName")]
+        [JsonProperty(PropertyName = "itemId")]
         public string ItemId { get; set; }
 
         [JsonProperty(PropertyName = "value")]
