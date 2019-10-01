@@ -1,5 +1,5 @@
 # nuera_assign2_backend
-Backend for the assessment pt 2 for Nuera insurance
+Backend for the assessment pt 2 for Nuera insurance for the purpose of demonstration.
 
 You will need to use visual studios to download the required nuget packages at the start.
 
